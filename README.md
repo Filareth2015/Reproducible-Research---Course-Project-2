@@ -10,8 +10,8 @@ The data for this assignment come in the form of a comma-separated-value file co
 
 There is also some documentation of the database available. Here you will find how some of the variables are constructed/defined.
 
-* National Weather Service Storm Data Documentation
-* National Climatic Data Center Storm Events FAQ
+* [National Weather Service Storm Data Documentation](https://github.com/Filareth2015/Reproducible-Research---Course-Project-2)
+* [National Climatic Data Center Storm Events FAQ](https://github.com/Filareth2015/Reproducible-Research---Course-Project-2)
 The events in the database start in the year 1950 and end in November 2011. In the earlier years of the database there are generally fewer events recorded, most likely due to a lack of good records. More recent years should be considered more complete.
 
 ## Assignment
