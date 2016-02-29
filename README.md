@@ -51,5 +51,5 @@ Once your document is published to RPubs, you should get a unique URL to that do
 
 NOTE: If you are having trouble connecting with RPubs due to proxy-related or other issues, you can upload your final analysis document file as a PDF to Coursera instead.
 
-## Submitting Your Assignmentменьше 
+## Submitting Your Assignment
 In order to submit this assignment, you must copy the RPubs URL for your completed data analysis document in to the peer assessment question.
