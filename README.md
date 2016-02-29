@@ -6,7 +6,7 @@ This project involves exploring the U.S. National Oceanic and Atmospheric Admini
 
 ## Data
 
-The data for this assignment come in the form of a comma-separated-value file compressed via the bzip2 algorithm to reduce its size. You can download the file from the course web site:
+The data for this assignment come in the form of a comma-separated-value file compressed via the bzip2 algorithm to reduce its size. You can find file in [course work project folder class](https://github.com/Filareth2015/Reproducible-Research---Course-Project-2).
 
 There is also some documentation of the database available. Here you will find how some of the variables are constructed/defined.
 
