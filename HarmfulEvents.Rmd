@@ -2,7 +2,7 @@
 title: "Reproducible-Research---Course-Project-2"
 author: "Zanin Pavel"
 date: "February 29, 2016"
-output: html_document
+output: pdf_document
 ---
 
 # Synopsis
@@ -35,26 +35,25 @@ Consider writing your report as if it were to be read by a government or municip
 
 
 
-Data Processing
----------------
-Load the data.
+# 1. Data Processing
+
+Loading the data.
 ```{r cache=TRUE}
 storm.data = read.csv(bzfile("repdata-data-StormData.csv.bz2"), header = TRUE)
 ```
 
-Loaded data summary:
+Loaded data's summary:
 ```{r}
 str(storm.data)
 ```
 
-Load required packages
+Loading required packages
 ```{r}
 library(ggplot2)
 library(plyr)
 ```
 
 ```{r}
-
 storm.data$PROPMULT <- 1
 storm.data$PROPMULT[storm.data$PROPDMGEXP =="H"] <- 100
 storm.data$PROPMULT[storm.data$PROPDMGEXP =="K"] <- 1000
@@ -68,8 +67,9 @@ storm.data$CROPMULT[storm.data$CROPDMGEXP =="M"] <- 1000000
 storm.data$CROPMULT[storm.data$CROPDMGEXP =="B"] <- 1000000000
 ```
 
+Then summarizing the selected data.
 ```{r}
-aggregate_data <- ddply(.data = storm.data, .variables = .(EVTYPE),
+shortStormData <- ddply(.data = storm.data, .variables = .(EVTYPE),
                         fatalities = sum(FATALITIES), 
                         injuries = sum(INJURIES), 
                         property_damage = sum(PROPDMG * PROPMULT), 
@@ -79,17 +79,18 @@ aggregate_data <- ddply(.data = storm.data, .variables = .(EVTYPE),
 
 
 ```{r}        
-harmfulForHealthEvents <- arrange(aggregate_data, desc(fatalities + injuries))
+harmfulForHealthEvents <- arrange(shortStormData, desc(fatalities + injuries))
 ```
 
 
 ```{r} 
-economicConsequences <- arrange(aggregate_data, desc(property_damage + crop_damage))
+economicConsequences <- arrange(shortStormData, desc(property_damage + crop_damage))
 ```
 
+# 2. Results
+### 2.1 Question 1 - Across the United States, which types of events (as indicated in the EVTYPE variable) are most harmful with respect to population health?
 
 ```{r}        
-## Question 1
 ggplot(data = head(harmfulForHealthEvents, 7), 
        aes(x = factor(EVTYPE), 
            y = (fatalities + injuries), 
@@ -98,15 +99,15 @@ ggplot(data = head(harmfulForHealthEvents, 7),
            fill="#EE6363") + 
   theme(axis.text.x = element_text(angle = 90, 
                                    hjust = 1)) + 
-  ggtitle("The most harmful events for population health") + 
+  ggtitle("The most harmful weather events for population health") + 
   xlab("Weather events") + 
   ylab("Number of injuries and fatalities")
 ```
 
+**Answer:** The most harmful weather events for population health is Tornado with 96979 victims.
 
+### 2.2 Question 2 - Across the United States, which types of events have the greatest economic consequences?
 ```{r}
-## Question 2
-        
 ggplot(data = head(economicConsequences, 7), 
        aes(x = factor(EVTYPE), 
            y = property_damage + crop_damage, 
@@ -115,9 +116,10 @@ ggplot(data = head(economicConsequences, 7),
            fill="#FFA54F") + 
   theme(axis.text.x = element_text(angle = 90, 
                                    hjust = 1)) + 
-  ggtitle("Events with the highest economic consequences") + 
+  ggtitle("Weather events with the highest economic consequences") + 
   xlab("Weather events") + 
   ylab("Total damage in $")
 
 ```
 
+**Answer:** Event with the highest economic consequences is Flood with 5661968450 $ damage.
