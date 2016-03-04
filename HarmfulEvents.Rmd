@@ -2,7 +2,7 @@
 title: "Reproducible-Research---Course-Project-2"
 author: "Zanin Pavel"
 date: "February 29, 2016"
-output: pdf_document
+output: html_document
 ---
 
 # Synopsis
@@ -10,13 +10,13 @@ This project involves exploring the U.S. National Oceanic and Atmospheric Admini
 
 **Data** 
 
-The data for this assignment come in the form of a comma-separated-value file compressed via the bzip2 algorithm to reduce its size. You can find file in [course work project folder class](https://github.com/Filareth2015/Reproducible-Research---Course-Project-2)
+The data for this assignment come in the form of a comma-separated-value file compressed via the bzip2 algorithm to reduce its size. You can find file in [course work project folder class](https://github.com/Filareth2015/Reproducible-Research-Course-Project)
 .
 
 There is also some documentation of the database available. Here you will find how some of the variables are constructed/defined.
 
-* National Weather Service Storm Data Documentation [see](https://github.com/Filareth2015/Reproducible-Research---Course-Project-2)   
-* National Climatic Data Center Storm Events FAQ [see](https://github.com/Filareth2015/Reproducible-Research---Course-Project-2)      
+* National Weather Service Storm Data Documentation [see](https://github.com/Filareth2015/Reproducible-Research-Course-Project)   
+* National Climatic Data Center Storm Events FAQ [see](https://github.com/Filareth2015/Reproducible-Research-Course-Project)      
 
 The events in the database start in the year 1950 and end in November 2011. In the earlier years of the database there are generally fewer events recorded, most likely due to a lack of good records. More recent years should be considered more complete.
 
