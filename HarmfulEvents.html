@@ -134,9 +134,9 @@ img {
 ##  $ REMARKS   : Factor w/ 436781 levels &quot;&quot;,&quot;-2 at Deer Park\n&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ REFNUM    : num  1 2 3 4 5 6 7 8 9 10 ...</code></pre>
 <p>Loading required packages</p>
-<pre class="r"><code>library(ggplot2)</code></pre>
-<pre><code>## Warning: package 'ggplot2' was built under R version 3.2.3</code></pre>
-<pre class="r"><code>library(plyr)</code></pre>
+<pre class="r"><code>library(ggplot2)
+library(plyr)</code></pre>
+<p>Conversion to common units of measurement</p>
 <pre class="r"><code>storm.data$PROPMULT &lt;- 1
 storm.data$PROPMULT[storm.data$PROPDMGEXP ==&quot;H&quot;] &lt;- 100
 storm.data$PROPMULT[storm.data$PROPDMGEXP ==&quot;K&quot;] &lt;- 1000
@@ -154,9 +154,11 @@ storm.data$CROPMULT[storm.data$CROPDMGEXP ==&quot;B&quot;] &lt;- 1000000000</cod
                         injuries = sum(INJURIES), 
                         property_damage = sum(PROPDMG * PROPMULT), 
                         crop_damage = sum(CROPDMG * CROPMULT), 
-                        summarize)</code></pre>
-<pre class="r"><code>harmfulForHealthEvents &lt;- arrange(shortStormData, desc(fatalities + injuries))</code></pre>
-<pre class="r"><code>economicConsequences &lt;- arrange(shortStormData, desc(property_damage + crop_damage))</code></pre>
+                        summarize)
+        
+harmfulForHealthEvents &lt;- arrange(shortStormData, desc(fatalities + injuries))
+
+economicConsequences &lt;- arrange(shortStormData, desc(property_damage + crop_damage))</code></pre>
 </div>
 <div id="results" class="section level1">
 <h1>2. Results</h1>

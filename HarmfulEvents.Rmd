@@ -48,11 +48,12 @@ str(storm.data)
 ```
 
 Loading required packages
-```{r}
+```{r, collapse = TRUE, warning=FALSE, message = FALSE, echo=TRUE, results='markup'}
 library(ggplot2)
 library(plyr)
 ```
 
+Conversion to common units of measurement
 ```{r}
 storm.data$PROPMULT <- 1
 storm.data$PROPMULT[storm.data$PROPDMGEXP =="H"] <- 100
@@ -75,15 +76,9 @@ shortStormData <- ddply(.data = storm.data, .variables = .(EVTYPE),
                         property_damage = sum(PROPDMG * PROPMULT), 
                         crop_damage = sum(CROPDMG * CROPMULT), 
                         summarize)
-```
-
-
-```{r}        
+        
 harmfulForHealthEvents <- arrange(shortStormData, desc(fatalities + injuries))
-```
 
-
-```{r} 
 economicConsequences <- arrange(shortStormData, desc(property_damage + crop_damage))
 ```
 
